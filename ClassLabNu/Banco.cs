@@ -12,7 +12,7 @@ namespace ClassLabNu
         public static MySqlCommand Abrir() 
         { 
             MySqlCommand cmd = new MySqlCommand();
-            string strcon = @"";
+            string strcon = @"server=127.0.0.1;database=comercialdb0191;user id=root;username=;port=3306";
             MySqlConnection cn = new MySqlConnection(strcon);
             cn.Open();
             cmd.Connection = cn;
