@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace ClassLabNu
 {
@@ -49,9 +50,17 @@ namespace ClassLabNu
         }
 
         // métodos da classe
-        public void Inserir(Cliente cliente) 
-        { 
-            
+        public void Inserir() 
+        {
+            var cmd = Banco.Abrir();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "insert clientes (nome, cpf, email, datacad, ativo) " +
+                "values('"+Nome+"','"+Cpf+"','"+
+               Email+"',default, default)";
+            cmd.ExecuteNonQuery();
+            cmd.CommandText = "select @@identity";
+            Id = Convert.ToInt32(cmd.ExecuteScalar());
+            cmd.Connection.Close();
         }
         public bool Alterar(Cliente cliente)
         {
