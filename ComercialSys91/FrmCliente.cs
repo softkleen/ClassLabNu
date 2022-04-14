@@ -11,9 +11,9 @@ using ClassLabNu;
 
 namespace ComercialSys91
 {
-    public partial class Form1 : Form
+    public partial class FrmCliente : Form
     {
-        public Form1()
+        public FrmCliente()
         {
             InitializeComponent();
         }

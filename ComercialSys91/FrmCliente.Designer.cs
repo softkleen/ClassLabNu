@@ -1,6 +1,6 @@
 ﻿namespace ComercialSys91
 {
-    partial class Form1
+    partial class FrmCliente
     {
         /// <summary>
         /// Variável de designer necessária.
