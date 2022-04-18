@@ -90,7 +90,7 @@ namespace ClassLabNu
         { 
             Cliente cliente = new Cliente();
             MySqlCommand cmd = Banco.Abrir();
-            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandType = CommandType.Text;
             cmd.CommandText = "select * from clientes where idcli = "+_id;
             MySqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read()) 
@@ -108,7 +108,7 @@ namespace ClassLabNu
         {
             Cliente cliente = new Cliente();
             MySqlCommand cmd = Banco.Abrir();
-            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandType = CommandType.Text;
             cmd.CommandText = "select * from clientes where cpf = " + _cpf;
             MySqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())

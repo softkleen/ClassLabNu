@@ -42,13 +42,66 @@ namespace ComercialSys91
 
         private void btnListar_Click(object sender, EventArgs e)
         {
-            lstClientes.Items.Clear();
+            dgvClientes.Rows.Clear();
             List<Cliente> listaDeClientes = Cliente.Listar();
+            int cont = 0;
             foreach (Cliente cliente in listaDeClientes) 
-            { 
-                lstClientes.Items.Add(cliente.Id + " - " + cliente.Nome );
-            }    
+            {
+                dgvClientes.Rows.Add();
+                dgvClientes.Rows[cont].Cells[0].Value = cliente.Id.ToString();
+                dgvClientes.Rows[cont].Cells[1].Value = cliente.Nome.ToString();
+                dgvClientes.Rows[cont].Cells[2].Value = cliente.Cpf.ToString();
+                dgvClientes.Rows[cont].Cells[3].Value = cliente.Email.ToString();
+                dgvClientes.Rows[cont].Cells[4].Value = cliente.Ativo;
+                cont++;
+            }
 
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (btnBuscar.Text == "...")
+            {
+                txtId.ReadOnly = false;
+                txtId.Focus();
+                btnBuscar.Text = "Buscar";
+            }
+            else
+            {
+                Cliente cliente = Cliente.ConsultarPorId(int.Parse(txtId.Text));
+                if (cliente.Id > 0)
+                {
+                    
+                    txtNome.Text = cliente.Nome.ToString();
+                    txtCpf.Text = cliente.Cpf.ToString();
+                    txtEmail.Text = cliente.Email.ToString();
+                    dtpDataCad.Value = cliente.DataCad.Date;
+                    chkAtivo.Checked = cliente.Ativo;
+
+                    btnBuscar.Text = "...";
+                    txtId.ReadOnly=true;
+                    btnAlterar.Enabled=true;
+                    txtCpf.ReadOnly=true;
+
+                }
+                else 
+                {
+                    MessageBox.Show("Esse código de cliente não existe!");
+                }
+            }
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            Cliente cliente = new Cliente();  
+            if (cliente.Alterar(int.Parse(txtId.Text),txtNome.Text,txtEmail.Text))
+            {
+                MessageBox.Show("Cliente alterado com Sucesso!");
+            }
+            else
+            {
+                MessageBox.Show("Falha na alteração do Cliente!");
+            }
         }
     }
 }
