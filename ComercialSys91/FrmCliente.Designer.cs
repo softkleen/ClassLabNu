@@ -122,9 +122,9 @@
             // lstClientes
             // 
             this.lstClientes.FormattingEnabled = true;
-            this.lstClientes.Location = new System.Drawing.Point(360, 59);
+            this.lstClientes.Location = new System.Drawing.Point(360, 39);
             this.lstClientes.Name = "lstClientes";
-            this.lstClientes.Size = new System.Drawing.Size(258, 212);
+            this.lstClientes.Size = new System.Drawing.Size(402, 212);
             this.lstClientes.TabIndex = 9;
             // 
             // btnListar
@@ -137,7 +137,7 @@
             this.btnListar.UseVisualStyleBackColor = true;
             this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
-            // Form1
+            // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -153,7 +153,7 @@
             this.Controls.Add(this.txtCpf);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.txtId);
-            this.Name = "Form1";
+            this.Name = "FrmCliente";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
