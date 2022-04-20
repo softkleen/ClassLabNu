@@ -20,7 +20,15 @@ namespace ComercialSys91
 
         private void Form1_Load(object sender, EventArgs e)
         {
-                       
+            string usuario = System.Environment.UserName;
+            Text += " - " + usuario ;    
+            DataTable dt = new DataTable();
+            dt.Load(Nivel.Listar());
+            cmbNivel.DataSource = dt;
+            cmbNivel.DisplayMember = "nome";
+            cmbNivel.ValueMember = "idnv";
+
+
         }
 
         private void btnInserir_Click(object sender, EventArgs e)
@@ -45,7 +53,7 @@ namespace ComercialSys91
             dgvClientes.Rows.Clear();
             List<Cliente> listaDeClientes = Cliente.Listar();
             int cont = 0;
-            foreach (Cliente cliente in listaDeClientes) 
+            foreach (Cliente cliente in listaDeClientes)
             {
                 dgvClientes.Rows.Add();
                 dgvClientes.Rows[cont].Cells[0].Value = cliente.Id.ToString();
@@ -55,6 +63,10 @@ namespace ComercialSys91
                 dgvClientes.Rows[cont].Cells[4].Value = cliente.Ativo;
                 cont++;
             }
+            listaDeClientes.ForEach(x => 
+            {
+                
+            });
 
         }
 
@@ -65,6 +77,7 @@ namespace ComercialSys91
                 txtId.ReadOnly = false;
                 txtId.Focus();
                 btnBuscar.Text = "Buscar";
+                txtCpf.Enabled = false;
             }
             else
             {
@@ -102,6 +115,34 @@ namespace ComercialSys91
             {
                 MessageBox.Show("Falha na alteração do Cliente!");
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            StringBuilder sb = new StringBuilder(); 
+            sb.Append("insert usuarios (nome, senha, nivel, ativo) values ('" + txtNomeUser.Text);
+            sb.Append("','");
+            sb.Append(txtEmailUser.Text);
+            sb.Append("','");
+            sb.Append(txtSenhaUser.Text);
+            sb.Append("',");
+            sb.Append(cmbNivel.SelectedValue + ",default)");
+            MessageBox.Show(sb.ToString());
+        }
+
+        private void cmbNivel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void label22_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

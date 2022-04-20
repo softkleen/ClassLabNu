@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ClassLabNu
 {
     public class Nivel
-    {  
+    {
         // atributos - campos
         private int id;
         private string nome;
@@ -19,7 +19,7 @@ namespace ClassLabNu
         public string Nome { get { return nome; } private set { nome = value; } }
         public string Sigla { get { return sigla; } }
 
-     
+
 
         // métodos construtores
         public Nivel()
@@ -40,8 +40,9 @@ namespace ClassLabNu
         }
         // Métodos da classe
         public void InserirNovo()
-        { 
+        {
             // inserir um novo nível
+
         }
         /// <summary>
         /// Altera a sigla do nível indicado. Apenas administradores.
@@ -52,6 +53,13 @@ namespace ClassLabNu
         public bool Alterar(int id, string sigla)
         {
             return true;
+        }
+        public static  MySql.Data.MySqlClient.MySqlDataReader Listar()
+        {
+            List<Nivel> niveis = new List<Nivel>();
+            var cmd = Banco.Abrir();
+            cmd.CommandText = "select * from niveis";
+            return cmd.ExecuteReader();
         }
     }
 
