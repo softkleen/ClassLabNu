@@ -47,7 +47,7 @@ END
 
 -- Usuários
 delimiter |
-CREATE PROCEDURE sp_cliente_usuario(
+CREATE PROCEDURE sp_usuario_inserir(
 _nome varchar(60), 
 _email varchar(60),
 _senha varchar(32),

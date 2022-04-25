@@ -20,10 +20,19 @@ namespace ComercialSys91
 
         private void FrmPedidos_Load(object sender, EventArgs e)
         {
-            var lista = Cliente.Listar();
-            cmbCliente.DataSource = lista.ToArray();
+            txtDataPed.Text = DateTime.Now.Date.ToString();
+            cmbCliente.DataSource = Cliente.Listar().ToArray();
             cmbCliente.DisplayMember = "Nome";
             cmbCliente.ValueMember = "Id";
+            cmbVendedor.DataSource = Usuario.Listar().ToArray();
+            cmbVendedor.DisplayMember = "Nome";
+            cmbVendedor.ValueMember = "Id";
+            
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

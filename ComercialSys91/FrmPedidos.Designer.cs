@@ -59,7 +59,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.txtDataPed = new System.Windows.Forms.TextBox();
             this.txtIdPedido = new System.Windows.Forms.TextBox();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -72,18 +72,19 @@
             this.groupBox3.Controls.Add(this.btnFechar);
             this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Controls.Add(this.button2);
-            this.groupBox3.Location = new System.Drawing.Point(579, 129);
+            this.groupBox3.Location = new System.Drawing.Point(579, 200);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(128, 231);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
+            this.groupBox3.Text = "Operações";
             // 
             // btnFechar
             // 
+            this.btnFechar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFechar.Location = new System.Drawing.Point(7, 178);
             this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(115, 23);
+            this.btnFechar.Size = new System.Drawing.Size(115, 30);
             this.btnFechar.TabIndex = 0;
             this.btnFechar.Text = "Fechar Pedido";
             this.btnFechar.UseVisualStyleBackColor = true;
@@ -109,7 +110,7 @@
             // txtValorTotal
             // 
             this.txtValorTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValorTotal.Location = new System.Drawing.Point(438, 367);
+            this.txtValorTotal.Location = new System.Drawing.Point(449, 405);
             this.txtValorTotal.Name = "txtValorTotal";
             this.txtValorTotal.Size = new System.Drawing.Size(124, 26);
             this.txtValorTotal.TabIndex = 7;
@@ -119,11 +120,12 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(325, 371);
+            this.label1.Location = new System.Drawing.Point(341, 409);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 18);
+            this.label1.Size = new System.Drawing.Size(102, 18);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Valor Total";
+            this.label1.Text = "Valor Total R$";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // groupBox2
             // 
@@ -139,7 +141,7 @@
             this.groupBox2.Controls.Add(this.cmbCodProd);
             this.groupBox2.Location = new System.Drawing.Point(24, 129);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(549, 232);
+            this.groupBox2.Size = new System.Drawing.Size(549, 270);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Itens de Pedido";
@@ -147,7 +149,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(409, 25);
+            this.label5.Location = new System.Drawing.Point(409, 41);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 13);
             this.label5.TabIndex = 6;
@@ -156,7 +158,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(301, 25);
+            this.label4.Location = new System.Drawing.Point(301, 41);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 13);
             this.label4.TabIndex = 6;
@@ -165,7 +167,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(92, 3);
+            this.label3.Location = new System.Drawing.Point(104, 41);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 6;
@@ -174,7 +176,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 25);
+            this.label2.Location = new System.Drawing.Point(13, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 13);
             this.label2.TabIndex = 6;
@@ -192,7 +194,7 @@
             this.clnValorUnit,
             this.clnQtd,
             this.clnTotalItem});
-            this.dtgItens.Location = new System.Drawing.Point(13, 69);
+            this.dtgItens.Location = new System.Drawing.Point(13, 107);
             this.dtgItens.Name = "dtgItens";
             this.dtgItens.ReadOnly = true;
             this.dtgItens.RowHeadersVisible = false;
@@ -249,7 +251,7 @@
             // 
             // btnInserirItem
             // 
-            this.btnInserirItem.Location = new System.Drawing.Point(487, 39);
+            this.btnInserirItem.Location = new System.Drawing.Point(487, 57);
             this.btnInserirItem.Name = "btnInserirItem";
             this.btnInserirItem.Size = new System.Drawing.Size(51, 23);
             this.btnInserirItem.TabIndex = 4;
@@ -258,23 +260,23 @@
             // 
             // txtQtdProd
             // 
-            this.txtQtdProd.Location = new System.Drawing.Point(412, 41);
+            this.txtQtdProd.Location = new System.Drawing.Point(412, 60);
             this.txtQtdProd.Name = "txtQtdProd";
             this.txtQtdProd.Size = new System.Drawing.Size(69, 20);
             this.txtQtdProd.TabIndex = 3;
             // 
             // txtValorUnitProd
             // 
-            this.txtValorUnitProd.Location = new System.Drawing.Point(304, 41);
+            this.txtValorUnitProd.Location = new System.Drawing.Point(304, 60);
             this.txtValorUnitProd.Name = "txtValorUnitProd";
             this.txtValorUnitProd.Size = new System.Drawing.Size(102, 20);
             this.txtValorUnitProd.TabIndex = 2;
             // 
             // txtDescricaoProd
             // 
-            this.txtDescricaoProd.Location = new System.Drawing.Point(92, 19);
+            this.txtDescricaoProd.Location = new System.Drawing.Point(107, 60);
             this.txtDescricaoProd.Name = "txtDescricaoProd";
-            this.txtDescricaoProd.Size = new System.Drawing.Size(203, 20);
+            this.txtDescricaoProd.Size = new System.Drawing.Size(191, 20);
             this.txtDescricaoProd.TabIndex = 1;
             // 
             // cmbCodProd
@@ -287,9 +289,9 @@
             "4",
             "5",
             "6"});
-            this.cmbCodProd.Location = new System.Drawing.Point(15, 41);
+            this.cmbCodProd.Location = new System.Drawing.Point(13, 60);
             this.cmbCodProd.Name = "cmbCodProd";
-            this.cmbCodProd.Size = new System.Drawing.Size(197, 21);
+            this.cmbCodProd.Size = new System.Drawing.Size(88, 21);
             this.cmbCodProd.TabIndex = 0;
             // 
             // groupBox1
@@ -301,7 +303,7 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.textBox10);
+            this.groupBox1.Controls.Add(this.txtDataPed);
             this.groupBox1.Controls.Add(this.txtIdPedido);
             this.groupBox1.Location = new System.Drawing.Point(24, 21);
             this.groupBox1.Name = "groupBox1";
@@ -372,9 +374,9 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(12, 58);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(84, 13);
+            this.label11.Size = new System.Drawing.Size(74, 13);
             this.label11.TabIndex = 1;
-            this.label11.Text = "Nome Vendedor";
+            this.label11.Text = "Nome Usuário";
             // 
             // label7
             // 
@@ -385,12 +387,13 @@
             this.label7.TabIndex = 1;
             this.label7.Text = "Nome Cliente";
             // 
-            // textBox10
+            // txtDataPed
             // 
-            this.textBox10.Location = new System.Drawing.Point(332, 34);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 20);
-            this.textBox10.TabIndex = 0;
+            this.txtDataPed.Location = new System.Drawing.Point(332, 34);
+            this.txtDataPed.Name = "txtDataPed";
+            this.txtDataPed.ReadOnly = true;
+            this.txtDataPed.Size = new System.Drawing.Size(100, 20);
+            this.txtDataPed.TabIndex = 0;
             // 
             // txtIdPedido
             // 
@@ -457,7 +460,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox txtDataPed;
         private System.Windows.Forms.TextBox txtIdPedido;
     }
 }

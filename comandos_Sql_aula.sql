@@ -35,8 +35,8 @@ select * from clientes;
 
 select * from clientes order by nome;
 
-insert usuarios (nome, email, senha,nivel,ativo) 
-values ('Jose', 'jose@senac.corp', md5('123456'), default, default);
+insert usuarios (nome, email, senha,idnv_user,ativo) 
+values ('Jose', 'jose@senac.corp', md5('123456'), 3, default);
 select * from usuarios;
 
 
