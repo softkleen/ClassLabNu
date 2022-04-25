@@ -46,8 +46,8 @@
             this.fecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
-            this.alterarUsuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trocarSessãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alterarUsuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -79,7 +79,7 @@
             // 
             this.clientesToolStripMenuItem.Image = global::ComercialSys91.Properties.Resources.Users;
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.clientesToolStripMenuItem.Text = "C&lientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
@@ -124,19 +124,20 @@
             this.novoToolStripMenuItem,
             this.consultarToolStripMenuItem});
             this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
-            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pedidosToolStripMenuItem.Text = "Pedidos";
             // 
             // novoToolStripMenuItem
             // 
             this.novoToolStripMenuItem.Name = "novoToolStripMenuItem";
-            this.novoToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.novoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.novoToolStripMenuItem.Text = "&Novo";
+            this.novoToolStripMenuItem.Click += new System.EventHandler(this.novoToolStripMenuItem_Click);
             // 
             // consultarToolStripMenuItem
             // 
             this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
-            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.consultarToolStripMenuItem.Text = "&Consultar";
             // 
             // movimentoToolStripMenuItem1
@@ -153,7 +154,7 @@
             this.abrirToolStripMenuItem,
             this.fecharToolStripMenuItem});
             this.caixaToolStripMenuItem.Name = "caixaToolStripMenuItem";
-            this.caixaToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.caixaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.caixaToolStripMenuItem.Text = "&Caixa";
             // 
             // abrirToolStripMenuItem
@@ -191,17 +192,17 @@
             this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 20);
             this.toolStripSplitButton1.Text = "toolStripSplitButton1";
             // 
-            // alterarUsuárioToolStripMenuItem
-            // 
-            this.alterarUsuárioToolStripMenuItem.Name = "alterarUsuárioToolStripMenuItem";
-            this.alterarUsuárioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.alterarUsuárioToolStripMenuItem.Text = "Alterar Usuário";
-            // 
             // trocarSessãoToolStripMenuItem
             // 
             this.trocarSessãoToolStripMenuItem.Name = "trocarSessãoToolStripMenuItem";
-            this.trocarSessãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.trocarSessãoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.trocarSessãoToolStripMenuItem.Text = "Trocar Sessão";
+            // 
+            // alterarUsuárioToolStripMenuItem
+            // 
+            this.alterarUsuárioToolStripMenuItem.Name = "alterarUsuárioToolStripMenuItem";
+            this.alterarUsuárioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.alterarUsuárioToolStripMenuItem.Text = "Alterar Usuário";
             // 
             // toolStripStatusLabel1
             // 

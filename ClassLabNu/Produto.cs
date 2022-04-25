@@ -92,7 +92,7 @@ namespace ClassLabNu
             // conecta banco e realiza consulta por parte da descriação do produtos
             return produtos;
         }
-        public List<Produto> ListarTodos(string descriParte = null)
+        public static List<Produto> ListarTodos(string descriParte = null)
         {
             List<Produto> produtos = new List<Produto>();
             // conecta banco e realiza consulta retornando todos produtos

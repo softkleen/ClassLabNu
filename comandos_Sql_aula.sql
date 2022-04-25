@@ -54,6 +54,12 @@ values (_nome, _email, md5(_senha), _idnv, default);
 END
 |
 
-
+delete from niveis where idnv between 1 and 3;  
 select * from niveis;
-insert niveis values(0,'Atendente', 'cx'),(0,'Caixa', 'cx'),(0,'Gerente', 'cx');
+insert niveis values(0,'Atendente', 'at'),(0,'Caixa', 'cx'),(0,'Gerente', 'gr');
+
+call sp_produtos_inserir('Amortecedor dianteiros Kofap para Onix','par','7898846577131',376.97);
+
+select * from clientes;
+
+

@@ -26,5 +26,12 @@ namespace ComercialSys91
             // exibe o formulário de cliente no formprincipal
             frmCliente.Show();
         }
+
+        private void novoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmPedidos frmPedidos = new FrmPedidos();
+            frmPedidos.MdiParent = this;
+            frmPedidos.Show();
+        }
     }
 }

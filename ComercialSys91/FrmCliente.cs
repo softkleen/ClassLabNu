@@ -124,17 +124,17 @@ namespace ComercialSys91
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //StringBuilder sb = new StringBuilder(); 
-            //sb.Append("insert usuarios (nome, senha, nivel, ativo) values ('" + txtNomeUser.Text);
-            //sb.Append("','");
-            //sb.Append(txtEmailUser.Text);
-            //sb.Append("','");
-            //sb.Append(txtSenhaUser.Text);
-            //sb.Append("',");
-            //sb.Append(cmbNivel.SelectedValue + ",default)");
-            //MessageBox.Show(sb.ToString());
+            StringBuilder sb = new StringBuilder();
+            sb.Append("insert usuarios (nome, senha, nivel, ativo) values ('" + txtNomeUser.Text);
+            sb.Append("','");
+            sb.Append(txtEmailUser.Text);
+            sb.Append("','");
+            sb.Append(txtSenhaUser.Text);
+            sb.Append("',");
+            sb.Append(cmbNivel.SelectedValue + ",default)");
+            MessageBox.Show(sb.ToString());
 
-            Produto produto = new Produto();
+            //Produto produto = new Produto();
             
         }
 
