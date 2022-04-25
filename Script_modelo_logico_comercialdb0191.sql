@@ -36,6 +36,17 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
+-- Table `comercialdb0191`.`niveis`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `comercialdb0191`.`niveis` (
+  `idnv` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NOT NULL,
+  `sigla` VARCHAR(5) NOT NULL,
+  PRIMARY KEY (`idnv`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `comercialdb0191`.`usuarios`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `comercialdb0191`.`usuarios` (
@@ -43,10 +54,16 @@ CREATE TABLE IF NOT EXISTS `comercialdb0191`.`usuarios` (
   `nome` VARCHAR(60) NOT NULL,
   `email` VARCHAR(60) NOT NULL,
   `senha` VARCHAR(32) NOT NULL,
-  `nivel` VARCHAR(15) NOT NULL DEFAULT 'A',
+  `idnv_user` INT NOT NULL,
   `ativo` BIT(1) NOT NULL DEFAULT b'1',
   PRIMARY KEY (`iduser`),
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC) )
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) ,
+  INDEX `fk_usuarios_nivel1_idx` (`idnv_user` ASC) ,
+  CONSTRAINT `fk_usuarios_nivel1`
+    FOREIGN KEY (`idnv_user`)
+    REFERENCES `comercialdb0191`.`niveis` (`idnv`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -88,6 +105,7 @@ CREATE TABLE IF NOT EXISTS `comercialdb0191`.`produtos` (
   `codbar` CHAR(13) NOT NULL,
   `valor` DECIMAL(10,2) NOT NULL,
   `desconto` DECIMAL(10,2) NOT NULL,
+  `descontinuado` BIT NOT NULL,
   PRIMARY KEY (`idprod`),
   UNIQUE INDEX `codbar_UNIQUE` (`codbar` ASC) )
 ENGINE = InnoDB
@@ -194,6 +212,49 @@ CREATE TABLE IF NOT EXISTS `comercialdb0191`.`pagamentos` (
   CONSTRAINT `fk_pagamentos_tipos1`
     FOREIGN KEY (`idtipo_pag`)
     REFERENCES `comercialdb0191`.`tipos` (`idtipo`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `comercialdb0191`.`enderecos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `comercialdb0191`.`enderecos` (
+  `idend` INT NOT NULL AUTO_INCREMENT,
+  `cep` CHAR(8) NOT NULL,
+  `logradouro` VARCHAR(100) NOT NULL,
+  `numero` VARCHAR(30) NULL,
+  `complemento` VARCHAR(100) NULL,
+  `bairro` VARCHAR(60) NOT NULL,
+  `cidade` VARCHAR(100) NOT NULL,
+  `estado` VARCHAR(45) NOT NULL,
+  `uf` CHAR(2) NOT NULL,
+  `tipo` VARCHAR(30) NOT NULL,
+  `idcli_end` INT(11) NOT NULL,
+  PRIMARY KEY (`idend`),
+  INDEX `fk_enderecos_clientes1_idx` (`idcli_end` ASC) ,
+  CONSTRAINT `fk_enderecos_clientes1`
+    FOREIGN KEY (`idcli_end`)
+    REFERENCES `comercialdb0191`.`clientes` (`idcli`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `comercialdb0191`.`telefones`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `comercialdb0191`.`telefones` (
+  `idtel` INT NOT NULL AUTO_INCREMENT,
+  `numero` VARCHAR(20) NOT NULL,
+  `tipo` VARCHAR(10) NOT NULL,
+  `idcli_tel` INT(11) NOT NULL,
+  PRIMARY KEY (`idtel`),
+  INDEX `fk_telefones_clientes1_idx` (`idcli_tel` ASC) ,
+  CONSTRAINT `fk_telefones_clientes1`
+    FOREIGN KEY (`idcli_tel`)
+    REFERENCES `comercialdb0191`.`clientes` (`idcli`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

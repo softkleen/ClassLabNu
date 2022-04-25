@@ -12,8 +12,9 @@ _email varchar(60)
 BEGIN
 	insert into clientes (nome,cpf, email, datacad, ativo)
     values (_nome, _cpf,_email, default, default);
-    select * from cliente where id = (select @@identity);    
+    select * from clientes where idcli = (select @@identity);    
 END
+|
 
  -- Procedure Atualização clientetipos
  -- drop PROCEDURE sp_cliente_alterar;
@@ -25,6 +26,22 @@ _email varchar(60)
 )
 BEGIN
 	update clientes set nome = _nome, email = _email where idcli = _id;
+END
+|
+
+-- Produtos
+
+delimiter |
+CREATE PROCEDURE sp_produtos_inserir(
+_descricao varchar(100), 
+_unidade varchar(14),
+_codbar char(13),
+_valor decimal(10,2)
+)
+BEGIN
+insert produtos (descricao, unidade, codbar, valor,desconto,descontinuado) 
+values (_descricao, _unidade, _codbar, _valor, 0, default);
+    select * from produtos where idprod = (select @@identity);    
 END
 |
 
