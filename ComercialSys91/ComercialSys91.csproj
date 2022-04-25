@@ -124,6 +124,9 @@
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmProduto.resx">
+      <DependentUpon>FrmProduto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -249,6 +252,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Users.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Add.ico" />
+    <None Include="Resources\View1.ico" />
+    <None Include="Resources\Search1.ico" />
+    <None Include="Resources\Image1.ico" />
+    <None Include="Resources\Edit1.ico" />
+    <None Include="Resources\Cancel1.ico" />
+    <None Include="Resources\Add1.ico" />
+    <Content Include="Resources\Cancel.ico" />
+    <Content Include="Resources\Edit.ico" />
+    <Content Include="Resources\Image.ico" />
+    <Content Include="Resources\Search.ico" />
+    <Content Include="Resources\View.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

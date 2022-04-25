@@ -54,12 +54,17 @@ namespace ClassLabNu
         {
             return true;
         }
-        public static  MySql.Data.MySqlClient.MySqlDataReader Listar()
+        public static List<Nivel> Listar()
         {
             List<Nivel> niveis = new List<Nivel>();
             var cmd = Banco.Abrir();
             cmd.CommandText = "select * from niveis";
-            return cmd.ExecuteReader();
+            var dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                niveis.Add(new Nivel(dr.GetInt32(0), dr.GetString(1), dr.GetString(2),true));
+            }
+            return niveis;
         }
     }
 

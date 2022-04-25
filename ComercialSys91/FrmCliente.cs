@@ -22,11 +22,9 @@ namespace ComercialSys91
         {
             string usuario = System.Environment.UserName;
             Text += " - " + usuario ;    
-            DataTable dt = new DataTable();
-            dt.Load(Nivel.Listar());
-            cmbNivel.DataSource = dt;
-            cmbNivel.DisplayMember = "nome";
-            cmbNivel.ValueMember = "idnv";
+            cmbNivel.DataSource = Nivel.Listar().ToArray();
+            cmbNivel.DisplayMember = "Nome";
+            cmbNivel.ValueMember = "Id";
 
 
         }
