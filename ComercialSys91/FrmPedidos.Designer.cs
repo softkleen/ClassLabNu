@@ -34,7 +34,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.txtValorTotal = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grbItens = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,9 +51,9 @@
             this.txtValorUnitProd = new System.Windows.Forms.TextBox();
             this.txtDescricaoProd = new System.Windows.Forms.TextBox();
             this.cmbCodProd = new System.Windows.Forms.ComboBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grbDados = new System.Windows.Forms.GroupBox();
             this.btnCriar = new System.Windows.Forms.Button();
-            this.cmbVendedor = new System.Windows.Forms.ComboBox();
+            this.cmbUsuario = new System.Windows.Forms.ComboBox();
             this.cmbCliente = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -61,10 +61,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtDataPed = new System.Windows.Forms.TextBox();
             this.txtIdPedido = new System.Windows.Forms.TextBox();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.grbItens.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgItens)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.grbDados.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox3
@@ -127,24 +128,25 @@
             this.label1.Text = "Valor Total R$";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // groupBox2
+            // grbItens
             // 
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.dtgItens);
-            this.groupBox2.Controls.Add(this.btnInserirItem);
-            this.groupBox2.Controls.Add(this.txtQtdProd);
-            this.groupBox2.Controls.Add(this.txtValorUnitProd);
-            this.groupBox2.Controls.Add(this.txtDescricaoProd);
-            this.groupBox2.Controls.Add(this.cmbCodProd);
-            this.groupBox2.Location = new System.Drawing.Point(24, 129);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(549, 270);
-            this.groupBox2.TabIndex = 4;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Itens de Pedido";
+            this.grbItens.Controls.Add(this.label5);
+            this.grbItens.Controls.Add(this.label4);
+            this.grbItens.Controls.Add(this.label3);
+            this.grbItens.Controls.Add(this.label2);
+            this.grbItens.Controls.Add(this.dtgItens);
+            this.grbItens.Controls.Add(this.btnInserirItem);
+            this.grbItens.Controls.Add(this.txtQtdProd);
+            this.grbItens.Controls.Add(this.txtValorUnitProd);
+            this.grbItens.Controls.Add(this.txtDescricaoProd);
+            this.grbItens.Controls.Add(this.cmbCodProd);
+            this.grbItens.Enabled = false;
+            this.grbItens.Location = new System.Drawing.Point(24, 129);
+            this.grbItens.Name = "grbItens";
+            this.grbItens.Size = new System.Drawing.Size(549, 270);
+            this.grbItens.TabIndex = 4;
+            this.grbItens.TabStop = false;
+            this.grbItens.Text = "Itens de Pedido";
             // 
             // label5
             // 
@@ -294,23 +296,23 @@
             this.cmbCodProd.Size = new System.Drawing.Size(88, 21);
             this.cmbCodProd.TabIndex = 0;
             // 
-            // groupBox1
+            // grbDados
             // 
-            this.groupBox1.Controls.Add(this.btnCriar);
-            this.groupBox1.Controls.Add(this.cmbVendedor);
-            this.groupBox1.Controls.Add(this.cmbCliente);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.txtDataPed);
-            this.groupBox1.Controls.Add(this.txtIdPedido);
-            this.groupBox1.Location = new System.Drawing.Point(24, 21);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(549, 102);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Dados do Pedido";
+            this.grbDados.Controls.Add(this.btnCriar);
+            this.grbDados.Controls.Add(this.cmbUsuario);
+            this.grbDados.Controls.Add(this.cmbCliente);
+            this.grbDados.Controls.Add(this.label10);
+            this.grbDados.Controls.Add(this.label8);
+            this.grbDados.Controls.Add(this.label11);
+            this.grbDados.Controls.Add(this.label7);
+            this.grbDados.Controls.Add(this.txtDataPed);
+            this.grbDados.Controls.Add(this.txtIdPedido);
+            this.grbDados.Location = new System.Drawing.Point(24, 21);
+            this.grbDados.Name = "grbDados";
+            this.grbDados.Size = new System.Drawing.Size(549, 102);
+            this.grbDados.TabIndex = 5;
+            this.grbDados.TabStop = false;
+            this.grbDados.Text = "Dados do Pedido";
             // 
             // btnCriar
             // 
@@ -320,21 +322,22 @@
             this.btnCriar.TabIndex = 7;
             this.btnCriar.Text = "&Criar";
             this.btnCriar.UseVisualStyleBackColor = true;
+            this.btnCriar.Click += new System.EventHandler(this.btnCriar_Click);
             // 
-            // cmbVendedor
+            // cmbUsuario
             // 
-            this.cmbVendedor.FormattingEnabled = true;
-            this.cmbVendedor.Items.AddRange(new object[] {
+            this.cmbUsuario.FormattingEnabled = true;
+            this.cmbUsuario.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
             "4",
             "5",
             "6"});
-            this.cmbVendedor.Location = new System.Drawing.Point(15, 73);
-            this.cmbVendedor.Name = "cmbVendedor";
-            this.cmbVendedor.Size = new System.Drawing.Size(266, 21);
-            this.cmbVendedor.TabIndex = 8;
+            this.cmbUsuario.Location = new System.Drawing.Point(15, 73);
+            this.cmbUsuario.Name = "cmbUsuario";
+            this.cmbUsuario.Size = new System.Drawing.Size(266, 21);
+            this.cmbUsuario.TabIndex = 8;
             // 
             // cmbCliente
             // 
@@ -389,39 +392,51 @@
             // 
             // txtDataPed
             // 
+            this.txtDataPed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDataPed.Location = new System.Drawing.Point(332, 34);
             this.txtDataPed.Name = "txtDataPed";
             this.txtDataPed.ReadOnly = true;
-            this.txtDataPed.Size = new System.Drawing.Size(100, 20);
+            this.txtDataPed.Size = new System.Drawing.Size(100, 26);
             this.txtDataPed.TabIndex = 0;
             // 
             // txtIdPedido
             // 
-            this.txtIdPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdPedido.Location = new System.Drawing.Point(438, 34);
             this.txtIdPedido.Name = "txtIdPedido";
             this.txtIdPedido.Size = new System.Drawing.Size(100, 29);
             this.txtIdPedido.TabIndex = 0;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.ForeColor = System.Drawing.Color.LimeGreen;
+            this.lblStatus.Location = new System.Drawing.Point(582, 28);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(0, 24);
+            this.lblStatus.TabIndex = 9;
             // 
             // FrmPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.txtValorTotal);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grbItens);
+            this.Controls.Add(this.grbDados);
             this.Name = "FrmPedidos";
             this.Text = "FrmPedidos";
             this.Load += new System.EventHandler(this.FrmPedidos_Load);
             this.groupBox3.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.grbItens.ResumeLayout(false);
+            this.grbItens.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgItens)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grbDados.ResumeLayout(false);
+            this.grbDados.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -435,7 +450,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtValorTotal;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grbItens;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -452,9 +467,9 @@
         private System.Windows.Forms.TextBox txtValorUnitProd;
         private System.Windows.Forms.TextBox txtDescricaoProd;
         private System.Windows.Forms.ComboBox cmbCodProd;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grbDados;
         private System.Windows.Forms.Button btnCriar;
-        private System.Windows.Forms.ComboBox cmbVendedor;
+        private System.Windows.Forms.ComboBox cmbUsuario;
         private System.Windows.Forms.ComboBox cmbCliente;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label8;
@@ -462,5 +477,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtDataPed;
         private System.Windows.Forms.TextBox txtIdPedido;
+        private System.Windows.Forms.Label lblStatus;
     }
 }

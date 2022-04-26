@@ -59,4 +59,17 @@ values (_nome, _email, md5(_senha), _idnv, default);
     select * from usuarios where iduser = (select @@identity);    
 END
 |
+ -- Pedidos
+ 
+ delimiter  |
+ create procedure sp_pedido_inserir(
+ _idcli int, _iduser int
+ )
+ BEGIN 
+ insert pedidos (data, status_ped,desconto, idcli_ped,iduser_ped) 
+ values (default, default,0,_idcli, _iduser); 
+ select idped, status_ped from pedidos where idped = (select @@identity); 
+ END
+ |
+
 

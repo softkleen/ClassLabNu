@@ -27,9 +27,9 @@ namespace ClassLabNu
 
 
         // métodos Construtores
-        public Usuario()
+        public Usuario(int _id = 0)
         {
-
+            id = _id;   
         }
         public Usuario(string nome, string email, Nivel nivel, string password)
         {

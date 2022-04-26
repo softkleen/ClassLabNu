@@ -27,8 +27,9 @@ namespace ClassLabNu
         public bool Ativo { get { return ativo; } set { ativo = value; } }
 
         // construtores
-        public Cliente()
+        public Cliente(int _id = 0)
         {
+            this.id = _id;  
         }
 
         public Cliente(string nome, string cpf, string email)

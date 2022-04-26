@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace ClassLabNu
 {
@@ -23,6 +24,11 @@ namespace ClassLabNu
         // construtores
         public Pedido() { }
 
+        public Pedido(Cliente cliente, Usuario usuario)
+        {
+            Cliente = cliente;
+            Usuario = usuario;
+        }
         public Pedido(DateTime dataPed, string status, double desconto, Cliente cliente, Usuario usuario, List<ItemPedido> itens)
         {
             DataPed = dataPed;
@@ -44,7 +50,19 @@ namespace ClassLabNu
             Itens = itens;
         }
         // Métodos da classe - Operações/Açoes/Funções
-        public void Inserir() { }
+        public void Inserir() 
+        {
+            var cmd = Banco.Abrir();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText ="sp_pedido_inserir";
+            cmd.Parameters.AddWithValue("_idcli", Cliente.Id);
+            cmd.Parameters.AddWithValue("_iduser", Usuario.Id);
+            var dr = cmd.ExecuteReader();
+            dr.Read();
+            Id = dr.GetInt32(0);
+            Status = dr.GetString(1);
+            cmd.Connection.Close();
+        }
         public bool Alterar(Pedido pedido)
         { 
             return false;
