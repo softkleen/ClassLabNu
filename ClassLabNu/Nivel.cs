@@ -12,36 +12,39 @@ namespace ClassLabNu
         private int id;
         private string nome;
         private string sigla;
-        public readonly bool ativo;
 
         // criando propriedades
         public int Id { get { return id; } }
         public string Nome { get { return nome; } private set { nome = value; } }
         public string Sigla { get { return sigla; } }
 
-
-
         // métodos construtores
-        public Nivel()
+        public Nivel(int _id=0)
         {
+            id = _id;   
         }
         public Nivel(string nome, string sigla)
         {
             this.nome = nome;
             this.sigla = sigla;
-            ativo = true;
         }
-        public Nivel(int id, string nome, string sigla, bool ativo)
+        public Nivel(int id, string nome, string sigla)
         {
             this.id = id;
             this.nome = nome;
             this.sigla = sigla;
-            this.ativo = ativo;
         }
         // Métodos da classe
         public void InserirNovo()
         {
-            // inserir um novo nível
+            // inserir um novo nível - sp_nivel_inserir
+            var cmd = Banco.Abrir();
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = "sp_nivel_inserir";
+            cmd.Parameters.AddWithValue("_nome", Nome);
+            cmd.Parameters.AddWithValue("_sigla", Sigla);
+            id  = Convert.ToInt32(cmd.ExecuteScalar());
+            cmd.Connection.Close();
 
         }
         /// <summary>
@@ -50,7 +53,7 @@ namespace ClassLabNu
         /// <param name="id">identificação do nível</param>
         /// <param name="sigla">valor literal da nova sigla</param>
         /// <returns>Retorna valor par teste lógico, confirmando a alteração</returns>
-        public bool Alterar(int id, string sigla)
+        public bool Alterar(int _id, string _nome, string _sigla)
         {
             return true;
         }
@@ -62,7 +65,7 @@ namespace ClassLabNu
             var dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                nivel = new Nivel(dr.GetInt32(0),dr.GetString(1),dr.GetString(2), dr.GetBoolean(3));
+                nivel = new Nivel(dr.GetInt32(0),dr.GetString(1),dr.GetString(2));
             }
             return nivel;
         }
@@ -74,7 +77,7 @@ namespace ClassLabNu
             var dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                niveis.Add(new Nivel(dr.GetInt32(0), dr.GetString(1), dr.GetString(2),true));
+                niveis.Add(new Nivel(dr.GetInt32(0), dr.GetString(1), dr.GetString(2)));
             }
             return niveis;
         }

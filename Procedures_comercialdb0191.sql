@@ -71,5 +71,29 @@ END
  select idped, status_ped from pedidos where idped = (select @@identity); 
  END
  |
+ 
+-- NIVEIS
+ delimiter |
+ create procedure sp_nivel_inserir(
+ _nome varchar(45),
+ _sigla varchar(5)
+ )
+ BEGIN
+	insert niveis (nome,sigla) values(_nome, _sigla);
+    select idnv from niveis where idnv = (select @@identity);
+ END
+ |
+ 
+  delimiter |
+ create procedure sp_nivel_alterar(
+ _id int,
+ _nome varchar(45),
+ _sigla varchar(5)
+ )
+ BEGIN
+	update niveis  set nome = _nome , sigla =  _sigla where idnv= _id;
+ END
+ |
+ 
 
 

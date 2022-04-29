@@ -23,9 +23,9 @@ namespace ClassLabNu
             {
                 cn.Open();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                throw e;
             }
             
             cmd.Connection = cn;

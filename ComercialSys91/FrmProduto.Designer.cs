@@ -33,7 +33,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtMaxDesconto = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dtgListaProduto = new System.Windows.Forms.DataGridView();
+            this.dgvListaProduto = new System.Windows.Forms.DataGridView();
             this.txtProcurar = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.chkDescontinuado = new System.Windows.Forms.CheckBox();
@@ -52,7 +52,7 @@
             this.picFoto = new System.Windows.Forms.PictureBox();
             this.btnListar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgListaProduto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaProduto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,7 +106,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dtgListaProduto);
+            this.groupBox1.Controls.Add(this.dgvListaProduto);
             this.groupBox1.Controls.Add(this.txtProcurar);
             this.groupBox1.Location = new System.Drawing.Point(53, 197);
             this.groupBox1.Name = "groupBox1";
@@ -115,24 +115,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lista de Produtos";
             // 
-            // dtgListaProduto
+            // dgvListaProduto
             // 
-            this.dtgListaProduto.AllowUserToAddRows = false;
-            this.dtgListaProduto.AllowUserToDeleteRows = false;
-            this.dtgListaProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgListaProduto.Location = new System.Drawing.Point(10, 38);
-            this.dtgListaProduto.Name = "dtgListaProduto";
-            this.dtgListaProduto.ReadOnly = true;
-            this.dtgListaProduto.RowHeadersVisible = false;
-            this.dtgListaProduto.Size = new System.Drawing.Size(600, 158);
-            this.dtgListaProduto.TabIndex = 10;
+            this.dgvListaProduto.AllowUserToAddRows = false;
+            this.dgvListaProduto.AllowUserToDeleteRows = false;
+            this.dgvListaProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaProduto.Location = new System.Drawing.Point(10, 38);
+            this.dgvListaProduto.Name = "dgvListaProduto";
+            this.dgvListaProduto.ReadOnly = true;
+            this.dgvListaProduto.RowHeadersVisible = false;
+            this.dgvListaProduto.Size = new System.Drawing.Size(600, 158);
+            this.dgvListaProduto.TabIndex = 10;
             // 
             // txtProcurar
             // 
-            this.txtProcurar.Location = new System.Drawing.Point(10, 18);
+            this.txtProcurar.Location = new System.Drawing.Point(10, 19);
             this.txtProcurar.Name = "txtProcurar";
             this.txtProcurar.Size = new System.Drawing.Size(600, 20);
             this.txtProcurar.TabIndex = 9;
+            this.txtProcurar.TextChanged += new System.EventHandler(this.txtProcurar_TextChanged);
             // 
             // label6
             // 
@@ -294,6 +295,7 @@
             this.btnListar.Text = "Listar";
             this.btnListar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
             // FrmProduto
             // 
@@ -325,7 +327,7 @@
             this.Text = "FrmProduto";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgListaProduto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaProduto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -340,7 +342,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtMaxDesconto;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dtgListaProduto;
+        private System.Windows.Forms.DataGridView dgvListaProduto;
         private System.Windows.Forms.TextBox txtProcurar;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckBox chkDescontinuado;

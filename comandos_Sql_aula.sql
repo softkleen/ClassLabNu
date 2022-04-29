@@ -36,10 +36,17 @@ select * from clientes;
 select * from clientes order by nome;
 
 insert usuarios (nome, email, senha,idnv_user,ativo) 
-values ('Jose', 'jose@senac.corp', md5('123456'), 3, default);
+values ('Jose', 'jose@senac.corp', md5('123456'), 4, default);
 select * from usuarios;
 
+insert usuarios (nome, email, senha,idnv_user,ativo) 
+values ('Administrador', 'admin', md5('123'), 6, default);
+select * from usuarios;
 
+insert usuarios (nome, email, senha,idnv_user,ativo) 
+values ('Caixa da Loja', 'cx', md5('123'), 5, default);
+select * from usuarios;
+update usuarios set nome = 'Caixa da Loja' where iduser = 4;
 delimiter |
 CREATE PROCEDURE sp_cliente_usuario(
 _nome varchar(60), 
@@ -54,6 +61,8 @@ values (_nome, _email, md5(_senha), _idnv, default);
 END
 |
 
+
+
 delete from niveis where idnv between 1 and 3;  
 select * from niveis;
 insert niveis values(0,'Atendente', 'at'),(0,'Caixa', 'cx'),(0,'Gerente', 'gr');
@@ -61,5 +70,10 @@ insert niveis values(0,'Atendente', 'at'),(0,'Caixa', 'cx'),(0,'Gerente', 'gr');
 call sp_produtos_inserir('Amortecedor dianteiros Kofap para Onix','par','7898846577131',376.97);
 
 select * from clientes;
+
+select * from pedidos;
+select * from usuarios;
+
+select * from produtos where descontinuado = 0 and descricao like '%mor%' order by 2
 
 

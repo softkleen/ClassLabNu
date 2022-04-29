@@ -65,7 +65,7 @@ namespace ClassLabNu
         public void Inserir() 
         {
             MySqlCommand cmd = Banco.Abrir();
-            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandType =  CommandType.StoredProcedure;
             cmd.CommandText = "sp_produtos_inserir";
             cmd.Parameters.AddWithValue("_descricao", descricao);
             cmd.Parameters.AddWithValue("_unidade", unidade);

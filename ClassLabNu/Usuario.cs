@@ -50,10 +50,28 @@ namespace ClassLabNu
             this.ativo = ativo;
         }
         // métodos da classe
-        public int Inserir()
+        public void Inserir()
         {
-            // chamadas de banco e gravo o registro
-            return id;
+            // chamadas de banco e gravo o registro - sp_usuario_inserir
+
+            
+        }
+        public static Usuario ObterPorId(int _id)
+        { 
+            Usuario usuario = new Usuario(0);
+            var cmd = Banco.Abrir();
+            cmd.CommandText = "select * from usuarios where id = " + _id;
+            var dr = cmd.ExecuteReader();
+            if (dr.Read()) 
+            { 
+                usuario.id = dr.GetInt32(0);
+                usuario.nome = dr.GetString(1);
+                usuario.email = dr.GetString(2);
+                usuario.password = dr.GetString(3);
+                usuario.nivel = Nivel.ObterPorId(dr.GetInt32(4));
+                usuario.ativo = dr.GetBoolean(5);
+            }
+            return usuario;
         }
         public static List<Usuario> Listar()
         {
@@ -74,10 +92,24 @@ namespace ClassLabNu
             return lista;
 
         }
-        public static bool EfetuarLogin(string email, string senha) 
+        public static Usuario EfetuarLogin(string email, string senha) 
         {
+           Usuario usuario = new Usuario();
             // realiza validação e devolve verdadeiro ou falso
-            return false;
+            var cmd = Banco.Abrir();
+            cmd.CommandText = "select * from usuarios where email = '"+
+                email+"' and senha = md5('"+senha+"')";
+            var dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                usuario.id = dr.GetInt32(0);
+                usuario.nome = dr.GetString(1);
+                usuario.email = dr.GetString(2);
+                usuario.password = dr.GetString(3);
+                usuario.nivel = Nivel.ObterPorId(dr.GetInt32(4));
+                usuario.ativo = dr.GetBoolean(5);
+            }
+            return usuario;
         }
     }
 }

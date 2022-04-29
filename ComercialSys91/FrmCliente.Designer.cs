@@ -53,6 +53,7 @@
             this.clnAtivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.grbEndereco = new System.Windows.Forms.GroupBox();
+            this.cmbUf = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -61,15 +62,15 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.mskCep = new System.Windows.Forms.MaskedTextBox();
+            this.cmbTipo = new System.Windows.Forms.ComboBox();
+            this.txtComplemento = new System.Windows.Forms.TextBox();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
+            this.txtUf = new System.Windows.Forms.TextBox();
+            this.txtCidade = new System.Windows.Forms.TextBox();
+            this.txtBairro = new System.Windows.Forms.TextBox();
+            this.txtNumero = new System.Windows.Forms.TextBox();
+            this.txtLogradouro = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.grbTelefones = new System.Windows.Forms.GroupBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
@@ -77,24 +78,18 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.grbDadosPessoais = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.cmbNivel = new System.Windows.Forms.ComboBox();
-            this.txtEmailUser = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.txtNomeUser = new System.Windows.Forms.TextBox();
+            this.arquivoXLS = new System.Windows.Forms.TextBox();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.button3 = new System.Windows.Forms.Button();
-            this.txtSenhaUser = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.grbEndereco.SuspendLayout();
             this.grbTelefones.SuspendLayout();
@@ -263,8 +258,10 @@
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.RowHeadersVisible = false;
+            this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClientes.Size = new System.Drawing.Size(450, 101);
             this.dgvClientes.TabIndex = 17;
+            this.dgvClientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellDoubleClick);
             // 
             // clnIdCli
             // 
@@ -318,6 +315,7 @@
             // 
             // grbEndereco
             // 
+            this.grbEndereco.Controls.Add(this.cmbUf);
             this.grbEndereco.Controls.Add(this.label15);
             this.grbEndereco.Controls.Add(this.label14);
             this.grbEndereco.Controls.Add(this.label13);
@@ -326,15 +324,15 @@
             this.grbEndereco.Controls.Add(this.label10);
             this.grbEndereco.Controls.Add(this.label9);
             this.grbEndereco.Controls.Add(this.label8);
-            this.grbEndereco.Controls.Add(this.maskedTextBox1);
-            this.grbEndereco.Controls.Add(this.comboBox2);
-            this.grbEndereco.Controls.Add(this.textBox7);
-            this.grbEndereco.Controls.Add(this.comboBox1);
-            this.grbEndereco.Controls.Add(this.textBox6);
-            this.grbEndereco.Controls.Add(this.textBox5);
-            this.grbEndereco.Controls.Add(this.textBox4);
-            this.grbEndereco.Controls.Add(this.textBox3);
-            this.grbEndereco.Controls.Add(this.textBox2);
+            this.grbEndereco.Controls.Add(this.mskCep);
+            this.grbEndereco.Controls.Add(this.cmbTipo);
+            this.grbEndereco.Controls.Add(this.txtComplemento);
+            this.grbEndereco.Controls.Add(this.cmbEstado);
+            this.grbEndereco.Controls.Add(this.txtUf);
+            this.grbEndereco.Controls.Add(this.txtCidade);
+            this.grbEndereco.Controls.Add(this.txtBairro);
+            this.grbEndereco.Controls.Add(this.txtNumero);
+            this.grbEndereco.Controls.Add(this.txtLogradouro);
             this.grbEndereco.Controls.Add(this.label7);
             this.grbEndereco.Location = new System.Drawing.Point(12, 163);
             this.grbEndereco.Name = "grbEndereco";
@@ -342,6 +340,42 @@
             this.grbEndereco.TabIndex = 19;
             this.grbEndereco.TabStop = false;
             this.grbEndereco.Text = "Endereços";
+            // 
+            // cmbUf
+            // 
+            this.cmbUf.FormattingEnabled = true;
+            this.cmbUf.Items.AddRange(new object[] {
+            "AC",
+            "AL",
+            "AP",
+            "AM",
+            "BA",
+            "CE",
+            "ES",
+            "GO",
+            "MA",
+            "MT",
+            "MS",
+            "MG",
+            "PA",
+            "PB",
+            "PR",
+            "PE",
+            "PI",
+            "RJ",
+            "RN",
+            "RS",
+            "RO",
+            "RR",
+            "SC",
+            "SP",
+            "SE",
+            "TO",
+            "DF"});
+            this.cmbUf.Location = new System.Drawing.Point(161, 110);
+            this.cmbUf.Name = "cmbUf";
+            this.cmbUf.Size = new System.Drawing.Size(56, 21);
+            this.cmbUf.TabIndex = 19;
             // 
             // label15
             // 
@@ -415,40 +449,42 @@
             this.label8.TabIndex = 11;
             this.label8.Text = "Logradouro";
             // 
-            // maskedTextBox1
+            // mskCep
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(13, 32);
-            this.maskedTextBox1.Mask = "00000-999";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(64, 20);
-            this.maskedTextBox1.TabIndex = 10;
+            this.mskCep.Location = new System.Drawing.Point(13, 32);
+            this.mskCep.Mask = "00000-999";
+            this.mskCep.Name = "mskCep";
+            this.mskCep.Size = new System.Drawing.Size(64, 20);
+            this.mskCep.TabIndex = 10;
+            this.mskCep.TextChanged += new System.EventHandler(this.mskCep_TextChanged);
+            this.mskCep.Leave += new System.EventHandler(this.mskCep_Leave);
             // 
-            // comboBox2
+            // cmbTipo
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cmbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipo.FormattingEnabled = true;
+            this.cmbTipo.Items.AddRange(new object[] {
             "Residencial",
             "Comercial",
             "Entrega",
             "Cobrança",
             "Devolução"});
-            this.comboBox2.Location = new System.Drawing.Point(305, 111);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 9;
+            this.cmbTipo.Location = new System.Drawing.Point(305, 111);
+            this.cmbTipo.Name = "cmbTipo";
+            this.cmbTipo.Size = new System.Drawing.Size(121, 21);
+            this.cmbTipo.TabIndex = 9;
             // 
-            // textBox7
+            // txtComplemento
             // 
-            this.textBox7.Location = new System.Drawing.Point(14, 72);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(141, 20);
-            this.textBox7.TabIndex = 8;
+            this.txtComplemento.Location = new System.Drawing.Point(14, 72);
+            this.txtComplemento.Name = "txtComplemento";
+            this.txtComplemento.Size = new System.Drawing.Size(141, 20);
+            this.txtComplemento.TabIndex = 8;
             // 
-            // comboBox1
+            // cmbEstado
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Items.AddRange(new object[] {
             "Acre",
             "Alagoas",
             "Amapá",
@@ -474,46 +510,48 @@
             "Santa Catarina",
             "São Paulo",
             "Sergipe",
-            "Tocantins"});
-            this.comboBox1.Location = new System.Drawing.Point(13, 111);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(142, 21);
-            this.comboBox1.TabIndex = 7;
+            "Tocantins",
+            "Distrito Federal"});
+            this.cmbEstado.Location = new System.Drawing.Point(13, 111);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(142, 21);
+            this.cmbEstado.TabIndex = 7;
             // 
-            // textBox6
+            // txtUf
             // 
-            this.textBox6.Location = new System.Drawing.Point(161, 111);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(48, 20);
-            this.textBox6.TabIndex = 6;
+            this.txtUf.Location = new System.Drawing.Point(161, 111);
+            this.txtUf.Name = "txtUf";
+            this.txtUf.Size = new System.Drawing.Size(48, 20);
+            this.txtUf.TabIndex = 6;
+            this.txtUf.TextChanged += new System.EventHandler(this.txtUf_TextChanged);
             // 
-            // textBox5
+            // txtCidade
             // 
-            this.textBox5.Location = new System.Drawing.Point(297, 72);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(130, 20);
-            this.textBox5.TabIndex = 5;
+            this.txtCidade.Location = new System.Drawing.Point(297, 72);
+            this.txtCidade.Name = "txtCidade";
+            this.txtCidade.Size = new System.Drawing.Size(130, 20);
+            this.txtCidade.TabIndex = 5;
             // 
-            // textBox4
+            // txtBairro
             // 
-            this.textBox4.Location = new System.Drawing.Point(161, 72);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(130, 20);
-            this.textBox4.TabIndex = 4;
+            this.txtBairro.Location = new System.Drawing.Point(161, 72);
+            this.txtBairro.Name = "txtBairro";
+            this.txtBairro.Size = new System.Drawing.Size(130, 20);
+            this.txtBairro.TabIndex = 4;
             // 
-            // textBox3
+            // txtNumero
             // 
-            this.textBox3.Location = new System.Drawing.Point(361, 32);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(65, 20);
-            this.textBox3.TabIndex = 3;
+            this.txtNumero.Location = new System.Drawing.Point(361, 32);
+            this.txtNumero.Name = "txtNumero";
+            this.txtNumero.Size = new System.Drawing.Size(65, 20);
+            this.txtNumero.TabIndex = 3;
             // 
-            // textBox2
+            // txtLogradouro
             // 
-            this.textBox2.Location = new System.Drawing.Point(83, 32);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(272, 20);
-            this.textBox2.TabIndex = 2;
+            this.txtLogradouro.Location = new System.Drawing.Point(83, 32);
+            this.txtLogradouro.Name = "txtLogradouro";
+            this.txtLogradouro.Size = new System.Drawing.Size(272, 20);
+            this.txtLogradouro.TabIndex = 2;
             // 
             // label7
             // 
@@ -589,18 +627,6 @@
             this.label19.TabIndex = 6;
             this.label19.Text = "Telefone";
             // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::ComercialSys91.Properties.Resources.AdItem2;
-            this.button1.Location = new System.Drawing.Point(315, 71);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(33, 36);
-            this.button1.TabIndex = 5;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
@@ -664,123 +690,56 @@
             this.grbDadosPessoais.TabStop = false;
             this.grbDadosPessoais.Text = "Cliente";
             // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::ComercialSys91.Properties.Resources.AdItem2;
+            this.button1.Location = new System.Drawing.Point(315, 71);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(33, 36);
+            this.button1.TabIndex = 5;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // button2
             // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = global::ComercialSys91.Properties.Resources.Save;
-            this.button2.Location = new System.Drawing.Point(835, 381);
+            this.button2.Location = new System.Drawing.Point(545, 248);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(46, 50);
+            this.button2.Size = new System.Drawing.Size(156, 23);
             this.button2.TabIndex = 22;
-            this.button2.Text = "Salvar";
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button2.Text = "Exportar Lista";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // cmbNivel
+            // arquivoXLS
             // 
-            this.cmbNivel.FormattingEnabled = true;
-            this.cmbNivel.Location = new System.Drawing.Point(784, 273);
-            this.cmbNivel.Name = "cmbNivel";
-            this.cmbNivel.Size = new System.Drawing.Size(121, 21);
-            this.cmbNivel.TabIndex = 23;
-            this.cmbNivel.SelectedIndexChanged += new System.EventHandler(this.cmbNivel_SelectedIndexChanged);
+            this.arquivoXLS.Location = new System.Drawing.Point(545, 220);
+            this.arquivoXLS.Name = "arquivoXLS";
+            this.arquivoXLS.Size = new System.Drawing.Size(321, 20);
+            this.arquivoXLS.TabIndex = 23;
             // 
-            // txtEmailUser
+            // openFileDialog1
             // 
-            this.txtEmailUser.Location = new System.Drawing.Point(648, 234);
-            this.txtEmailUser.MaxLength = 60;
-            this.txtEmailUser.Name = "txtEmailUser";
-            this.txtEmailUser.Size = new System.Drawing.Size(257, 20);
-            this.txtEmailUser.TabIndex = 28;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(496, 191);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(83, 20);
-            this.textBox10.TabIndex = 25;
-            // 
-            // txtNomeUser
-            // 
-            this.txtNomeUser.Location = new System.Drawing.Point(648, 192);
-            this.txtNomeUser.MaxLength = 60;
-            this.txtNomeUser.Name = "txtNomeUser";
-            this.txtNomeUser.Size = new System.Drawing.Size(257, 20);
-            this.txtNomeUser.TabIndex = 26;
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(585, 190);
+            this.button3.Location = new System.Drawing.Point(884, 216);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(54, 23);
-            this.button3.TabIndex = 33;
-            this.button3.Text = "...";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 24;
+            this.button3.Text = "Browse...";
             this.button3.UseVisualStyleBackColor = true;
-            // 
-            // txtSenhaUser
-            // 
-            this.txtSenhaUser.Location = new System.Drawing.Point(496, 234);
-            this.txtSenhaUser.MaxLength = 11;
-            this.txtSenhaUser.Name = "txtSenhaUser";
-            this.txtSenhaUser.Size = new System.Drawing.Size(143, 20);
-            this.txtSenhaUser.TabIndex = 27;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(498, 175);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(18, 13);
-            this.label20.TabIndex = 29;
-            this.label20.Text = "ID";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(649, 176);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(35, 13);
-            this.label21.TabIndex = 30;
-            this.label21.Text = "Nome";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(498, 221);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(38, 13);
-            this.label22.TabIndex = 31;
-            this.label22.Text = "Senha";
-            this.label22.Click += new System.EventHandler(this.label22_Click);
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(649, 221);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(32, 13);
-            this.label23.TabIndex = 32;
-            this.label23.Text = "Email";
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1018, 586);
-            this.Controls.Add(this.txtEmailUser);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.txtNomeUser);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.txtSenhaUser);
-            this.Controls.Add(this.label20);
-            this.Controls.Add(this.label21);
-            this.Controls.Add(this.label22);
-            this.Controls.Add(this.label23);
-            this.Controls.Add(this.cmbNivel);
+            this.Controls.Add(this.arquivoXLS);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.grbDadosPessoais);
             this.Controls.Add(this.grbTelefones);
@@ -836,16 +795,16 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn clnAtivo;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.GroupBox grbEndereco;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox cmbEstado;
+        private System.Windows.Forms.TextBox txtUf;
+        private System.Windows.Forms.TextBox txtCidade;
+        private System.Windows.Forms.TextBox txtBairro;
+        private System.Windows.Forms.TextBox txtNumero;
+        private System.Windows.Forms.TextBox txtLogradouro;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.ComboBox cmbTipo;
+        private System.Windows.Forms.TextBox txtComplemento;
+        private System.Windows.Forms.MaskedTextBox mskCep;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
@@ -867,17 +826,12 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox3;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.GroupBox grbDadosPessoais;
+        private System.Windows.Forms.ComboBox cmbUf;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox cmbNivel;
-        private System.Windows.Forms.TextBox txtEmailUser;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox txtNomeUser;
+        private System.Windows.Forms.TextBox arquivoXLS;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox txtSenhaUser;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
     }
 }
 
