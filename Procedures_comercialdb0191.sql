@@ -71,7 +71,17 @@ END
  select idped, status_ped from pedidos where idped = (select @@identity); 
  END
  |
- 
+ -- drop procedure sp_pedido_alterar
+ delimiter |
+ create procedure sp_pedido_alterar(
+ _id int, 
+ _status varchar(15), 
+ _desconto decimal(10,2)
+ )
+ BEGIN
+     update pedidos set status_ped  = _status, desconto = _desconto where idped = _id;
+ END
+ |
 -- NIVEIS
  delimiter |
  create procedure sp_nivel_inserir(
@@ -92,6 +102,21 @@ END
  )
  BEGIN
 	update niveis  set nome = _nome , sigla =  _sigla where idnv= _id;
+ END
+ |
+ 
+ -- Item Pedido
+ delimiter |
+ create procedure sp_itempedido_inserir(
+ _idped int,
+ _idprd int,
+ _valor decimal(10,2),
+ _quantidade decimal(10,2),
+ _desconto decimal(10,2)
+ )
+ BEGIN
+    insert itempedido (idped_ip, idprod_ip, valor, quantidade, desconto)
+    values (_idped, _idprod, _valor, _quantidade, _desconto);
  END
  |
  

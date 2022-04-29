@@ -38,6 +38,12 @@ namespace ClassLabNu
         { 
         
         }
+        public static List<ItemPedido> ListarItens(int _idped = 0)
+        { 
+            List<ItemPedido> itemsPedido = new List<ItemPedido>();
+
+            return itemsPedido;
+        }
 
     }
 }

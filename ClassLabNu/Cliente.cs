@@ -37,8 +37,6 @@ namespace ClassLabNu
             Nome = nome;
             Cpf = cpf;
             Email = email;
-            // DataCad = DateTime.Now;
-            // ativo = true;
         }
 
         public Cliente(int id, string nome, string cpf, string email, DateTime dataCad, bool ativo)

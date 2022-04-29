@@ -40,13 +40,13 @@ values ('Jose', 'jose@senac.corp', md5('123456'), 4, default);
 select * from usuarios;
 
 insert usuarios (nome, email, senha,idnv_user,ativo) 
-values ('Administrador', 'admin', md5('123'), 6, default);
+values ('Administrador', 'admin', md5('123'), 3, default);
 select * from usuarios;
 
 insert usuarios (nome, email, senha,idnv_user,ativo) 
-values ('Caixa da Loja', 'cx', md5('123'), 5, default);
+values ('Caixa da Loja', 'cx', md5('123'), 2, default);
 select * from usuarios;
-update usuarios set nome = 'Caixa da Loja' where iduser = 4;
+update usuarios set idnv_user = 1 where iduser = 1;
 delimiter |
 CREATE PROCEDURE sp_cliente_usuario(
 _nome varchar(60), 
